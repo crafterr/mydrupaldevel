@@ -1,0 +1,47 @@
+hello_world.hello:
+  path: '/hello'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\HelloWorldController::helloWorld'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.datadefinition:
+  path: '/datadefinition'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\DataDefinitionController::show'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.query:
+  path: '/query'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\DataDefinitionController::query'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.query2.display:
+  path: '/query/display'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\QueryController::display'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.query2:
+  path: '/query2'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\QueryController::list'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+hello_world.greeting_form:
+  path: '/admin/config/salutation-configuration'
+  defaults:
+    _form: '\Drupal\hello_world\Form\SalutationConfigurationForm'
+    _title: 'Salutation configuration'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function form_in_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.form_in_block':
+      $output  = '';
+      $output .= '<h3>'.t('About').'</h3>';
+      $output .= '<p>'.t('This is an example module'). '</p>';
+      return $output;
+    default:
+  }
+
+}
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function form_in_block_theme($existing, $type, $theme, $path) {
+  return [
+    'form_in_block' => [
+      'render element' => 'form',
+
+    ]
+
+  ];
+}

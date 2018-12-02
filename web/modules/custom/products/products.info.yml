@@ -1,0 +1,5 @@
+name: Custom Products entity
+description: Custom Products entity
+type: module
+core: 8.x
+package: Custom

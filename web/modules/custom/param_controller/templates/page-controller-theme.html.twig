@@ -1,0 +1,13 @@
+<section>
+    <h1> My theming page </h1>
+    <p><em> This is my page #{{ number }} </em></p>
+    <H1>Wybrales node {{ number }}</H1>
+
+    {% if node is null %}
+    <p>Nie ma takeigo noda</p>
+    {% else %}
+       <p>{{ node.title.value }}</p>
+        <p>{{ node.body.value|raw }}</p>
+    {% endif %}
+
+</section>

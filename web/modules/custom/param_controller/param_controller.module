@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function param_controller_theme($existing, $type, $theme, $path) {
+  $build['param_controller_theme'] = [
+    'variables' => array('number' => NULL,'node'=>NULL),
+    'template' => 'page-controller-theme',
+  ];
+
+  return $build;
+}

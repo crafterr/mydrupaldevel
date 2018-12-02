@@ -1,0 +1,7 @@
+product.import:
+  path: '/products/import'
+  defaults:
+    _controller: 'Drupal\products\Controller\Import::page'
+    _title: 'Import'
+  requirements:
+    _permission: 'view content'

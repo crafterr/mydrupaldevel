@@ -1,0 +1,12 @@
+# Product entity menu items
+entity.product.collection:
+  title: 'Product List'
+  route_name: entity.product.collection
+  description: 'List Product entities'
+  base_route: system.admin_content
+
+entity.product_type.collection:
+  title: 'Product Types'
+  route_name: entity.product_type.collection
+  description: 'List Product Types'
+  base_route: system.admin_content

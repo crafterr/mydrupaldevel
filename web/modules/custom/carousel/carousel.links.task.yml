@@ -1,0 +1,6 @@
+# Carousel entity menu items
+entity.carousel.collection:
+  title: 'Carousel List'
+  route_name: entity.carousel.collection
+  description: 'List Carousel entities'
+  base_route: system.admin_structure

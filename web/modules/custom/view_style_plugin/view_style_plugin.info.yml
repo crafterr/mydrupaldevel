@@ -1,0 +1,5 @@
+name: Custom View Style plugin
+description: Custom View Style plugin
+type: module
+core: 8.x
+package: Custom

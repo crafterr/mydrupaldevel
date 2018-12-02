@@ -1,0 +1,19 @@
+<div class="my-block-content" {{ attributes }}>
+
+    {{ form.form_build_id }}
+    {{ form.form_token }}
+    {{ form.form_id }}
+
+   <div class="row">
+      <div class="col-md-6">
+          {{ form.employee_name }}
+      </div>
+      <div class="col-md-6">
+          {{ form.employee_mail }}
+      </div>
+      <div class="actions">
+          {{ form.actions.submit }}
+      </div>
+   </div>
+
+</div>

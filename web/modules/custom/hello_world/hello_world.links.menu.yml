@@ -1,0 +1,13 @@
+hello_world.settings:
+  title: 'Salutation config'
+  parent: system.admin_config_system
+  description: 'Admin settings Salutation configuration'
+  route_name: hello_world.greeting_form
+  weight: 99
+
+hello_world.hello:
+  title: 'Hello'
+  description: 'Get your dynamic salutation.'
+  route_name: hello_world.hello
+  menu_name: main
+  weight: 0

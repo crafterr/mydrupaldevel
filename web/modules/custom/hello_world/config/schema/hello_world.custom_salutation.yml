@@ -1,0 +1,14 @@
+hello_world.custom_salutation:
+  type: config_object
+  label: 'Salutation settings'
+  mapping:
+    salutation:
+      type: string
+      label: 'The salutation message'
+hello_world.other_salutationer:
+  type: config_object
+  label: 'Salutation settingser'
+  mapping:
+    salutationer:
+      type: string
+      label: 'The salutation messageeee'

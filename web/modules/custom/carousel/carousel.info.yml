@@ -1,0 +1,9 @@
+name: Carousel Entity
+description: Custom Carousel entity
+type: module
+core: 8.x
+package: Custom
+
+dependencies:
+  - drupal:image
+  - drupal:block

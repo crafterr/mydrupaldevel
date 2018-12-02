@@ -1,0 +1,164 @@
+<?php
+/**
+ * @file
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function hello_world_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.hello_world':
+      $output  = '';
+      $output .= '<h3>'.t('About').'</h3>';
+      $output .= '<p>'.t('This is an example module'). '</p>';
+      return $output;
+    default:
+  }
+
+}
+
+/**
+ * Implements hook_form_alter().
+ * we can simple get form use $builder = \Drupal::formBuilder();
+ * $form = $builder->getForm('Drupal\hello_world\Form\SalutationConfigurationForm');
+ */
+function hello_world_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  if ($form_id=='salutation_configuration_form') {
+   //any code
+  }
+}
+//the same what above only hook_form_FORM_ID_alter
+function hello_world_form_salutation_configuration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  $config = Drupal::config('hello_world.annotate_deletion');
+  $form['#submit'][] = 'hello_world_salutation_configuration_form_submit';
+  $form['annotate_deletion'] = [
+    '#type' => 'radios',
+    '#title' => t('Przypisy zostaną usunięte'),
+    '#description' => t('Wybierz metodę usuwania przypisów'),
+    '#options' => [
+      t('Nigdy'),
+      t('Losowo'),
+      t('Po 30 dniach')
+    ],
+    '#default_value' => $config->get('annotate_deletion',0), //domyslnie nigdy
+  ];
+
+  //any code
+}
+
+function hello_world_salutation_configuration_form_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
+{
+  //$config = \Drupal::config('system.maintenance');
+  //$config = $factory->get('system.site');
+  //$value = $config->get('page.403');
+  $annotate_deletion = $form_state->getValue('annotate_deletion');
+  \Drupal::service('config.factory')
+    ->getEditable('hello_world.annotate_deletion')
+    ->set('annotate_deletion',$annotate_deletion)
+    ->save();
+}
+
+/**
+ * Implements hook_theme().
+ */
+/*function hello_world_theme($existing, $type, $theme, $path) {
+  return [
+    'hello_world_salutation' => [
+      'variables' => ['title'=>null,'salutation' => null,'enabled'=>null],
+      'template' => 'hello--world-salutation'
+    ],
+
+  ];
+}*/
+
+/**
+ * Implements hook_theme().
+ */
+function hello_world_theme($existing, $type, $theme, $path) {
+  return [
+    'hello_world_salutation' => [
+      'variables' => ['salutation' => NULL, 'target' => NULL, 'overridden' => FALSE],
+    ],
+    'my_context_block' => [
+      'variables' => ['mytext'=>NULL]
+    ]
+  ];
+}
+
+/**
+ * Default preprocessor function for the hello_world_salutation theme hook.
+ */
+function template_preprocess_hello_world_salutation(&$variables) {
+  $variables['attributes'] = [
+    'class' => ['salutation'],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function hello_world_theme_suggestions_hello_world_salutation($variables) {
+  $suggestions = [];
+
+  if ($variables['overridden'] == TRUE) {
+    $suggestions[] = 'hello_world_salutation__overridden';
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function hello_world_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'hello_world_log':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('There is an error on your website');
+      $message['body'][] = $params['message'];
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function hello_world_mail_alter(&$message) {
+  switch ($message['key']) {
+    case 'hello_world_log':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      break;
+  }
+}
+
+
+function hello_world_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('disclaimer')) {
+    $build['disclaimer'] = [
+      '#markup' => t('The content provided is for general information purposes only.'),
+    ];
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function hello_world_entity_extra_field_info() {
+  $extra =  [];
+  foreach (\Drupal\node\Entity\NodeType::loadMultiple() as $bundle)
+  {
+    $extra['node'][$bundle->Id()]['display']['disclaimer'] = [
+      'label' => t('Disclaimer'),
+      'description' => t('A general disclaimer'),
+      'weight' => 100,
+      'visible' => TRUE,
+    ];
+  }
+
+  return $extra;
+}

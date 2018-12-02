@@ -1,0 +1,14 @@
+# Carousel entity menu items
+entity.carousel.collection:
+  title: 'Carousel List'
+  route_name: entity.carousel.collection
+  description: 'List Carousel entities'
+  parent: system.admin_structure
+  weight: 100
+
+carousel.admin:
+  title: 'Carousel settings'
+  description: 'Provide a carousel settings for the block'
+  parent: system.admin_config_media
+  route_name: carousel.admin_settings
+  weight: 100

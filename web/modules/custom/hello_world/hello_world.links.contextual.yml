@@ -1,0 +1,9 @@
+hello_world.override:
+  title: 'Edit this itemikkkkk'
+  route_name: hello_world.greeting_form
+  group: hello_world
+
+hello_world.override2:
+  title: 'Edytuj ten block moj'
+  route_name: entity.block.edit_form
+  group: my_context

@@ -1,0 +1,7 @@
+param_controller.showmyparam:
+  path: '/showmyparam/{number}'
+  defaults:
+    _title: 'Show my param'
+    _controller: '\Drupal\param_controller\Controller\ShowMyParam::render'
+  requirements:
+    _permission: 'access content'
