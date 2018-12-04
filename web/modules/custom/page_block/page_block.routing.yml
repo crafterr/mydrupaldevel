@@ -1,0 +1,7 @@
+page_block.admin_settings:
+  path: '/admin/config/system/page-block'
+  defaults:
+    _form: '\Drupal\page_block\Form\SettingsForm'
+    _title: 'Carousel settings'
+  requirements:
+    _permission: 'administer site configuration'

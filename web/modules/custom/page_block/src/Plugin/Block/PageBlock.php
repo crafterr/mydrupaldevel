@@ -1,13 +1,11 @@
 <?php
 
-namespace Drupal\carousel\Plugin\Block;
+namespace Drupal\page_block\Plugin\Block;
 
-use Drupal\carousel\Entity\Carousel;
-use Drupal\carousel\Form\SettingsForm;
+use Drupal\page_block\Form\SettingsForm;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\image\Entity\ImageStyle;
@@ -15,14 +13,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 
 /**
- * Provides a carousel' Block.
+ * Provides a page' Block.
  *
  * @Block(
- *   id = "carousel_block",
- *   admin_label = @Translation("Carousel Block")
+ *   id = "page_block",
+ *   admin_label = @Translation("Page Block")
  * )
  */
-class CarouselBlock extends BlockBase implements ContainerFactoryPluginInterface {
+class PageBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * This will hold ImmutableConfig object.
@@ -55,7 +53,7 @@ class CarouselBlock extends BlockBase implements ContainerFactoryPluginInterface
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->moduleSettings = $config_factory->get('carousel.settings');
+    $this->moduleSettings = $config_factory->get('page_block.settings');
     $this->entityTypeManager = $entity_type_manager;
   }
 
@@ -76,10 +74,12 @@ class CarouselBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
+
+    //dump($this->getPage()->get('body')->value); die();
     $build = [
-      '#items' => $this->getCarouselItems(),
+      '#page' => $this->getPage(),
       '#settings' => $this->moduleSettings,
-      '#theme' => 'carousel_block',
+      '#theme' => 'page_block',
     ];
 
 
@@ -102,20 +102,16 @@ class CarouselBlock extends BlockBase implements ContainerFactoryPluginInterface
   }
 
   /**
-   * Returns an active carousel items.
-   *
-   * @return array|null
-   *   Items list or null
+   * @return mixed
    */
-  protected function getCarouselItems() {
+  protected function getPage() {
 
-    $storage = $this->entityTypeManager->getStorage('carousel');
-    $query_result = $storage->getQuery()
-      ->condition('status', 1)
-      ->execute();
-    $carousel = Carousel::loadMultiple($query_result);
-
-    if (!empty($carousel)) {
+    //$storage = $this->entityTypeManager->getStorage('node');
+    $page = $this->entityTypeManager->getStorage('node')->load(1);
+    if ($page) {
+      return $page;
+    }
+    /*if (!empty($carousel)) {
       foreach ($carousel as &$item) {
 
         $file = $item->getImage();
@@ -130,7 +126,7 @@ class CarouselBlock extends BlockBase implements ContainerFactoryPluginInterface
       }
     }
 
-    return $carousel;
+    return $carousel;*/
   }
 
 }
