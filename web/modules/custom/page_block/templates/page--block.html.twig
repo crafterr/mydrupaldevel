@@ -2,3 +2,5 @@
 <p>{{ dump(settings.get('wrap')) }}</p>
 <h1>Tytuł z konfiracji: {{  settings.get('title') }}</h1>
 <p>{{ page.get('body').value|raw}}</p>
+{#From template_preprocess_page_block in spors module#}
+<p>{{ test }}</p>

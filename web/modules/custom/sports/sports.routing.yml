@@ -1,0 +1,16 @@
+sports.players:
+  path: '/players'
+  defaults:
+    _controller: '\Drupal\sports\Controller\SportsController::players'
+    _title: 'Sport'
+  requirements:
+    _permission: 'access content'
+
+sports.insert:
+  path: '/players/insert/{name}/{group_id}'
+  defaults:
+    _controller: '\Drupal\sports\Controller\SportsController::insert'
+    _title: 'Sport Insert'
+  requirements:
+    _permission: 'access content'
+

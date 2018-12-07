@@ -1,0 +1,5 @@
+name: Sports Database Api
+description: Sports Database Api
+type: module
+core: 8.x
+package: Custom
