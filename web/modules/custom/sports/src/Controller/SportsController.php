@@ -42,6 +42,7 @@ class SportsController extends ControllerBase {
 
   public function players()
   {
+
     $query = $this->database->select('players','p')
       ->fields('p')
       ->extend('\Drupal\Core\Database\Query\PagerSelectExtender')

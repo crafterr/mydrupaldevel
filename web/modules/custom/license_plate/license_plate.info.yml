@@ -1,0 +1,5 @@
+name: License Plate custom field
+description: License Plate custom field
+type: module
+core: 8.x
+package: Custom

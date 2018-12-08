@@ -1,0 +1,12 @@
+{{ dump(concatenated) }}
+{% if concatenated %}
+    <span class="license-plate {{ color ? 'color' : '' }}">{{ code }} {{ number }}</span>
+{% else %}
+    <span class="license-plate--code {{ color ? 'color' : '' }}">{{ code }}</span> <span class="license-plate--number">{{ number }}</span>
+{% endif %}
+
+<style>
+    span.color {
+        color: red;
+    }
+</style>
