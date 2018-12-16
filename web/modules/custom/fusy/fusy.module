@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains fusy.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function fusy_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the fusy module.
+    case 'help.page.fusy':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My fusy controller') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function fusy_theme() {
+  return [
+    'fusy' => [
+      //'render element' => 'children',
+      'variables' => array('events' => NULL),
+    ],
+  ];
+}

@@ -1,0 +1,5 @@
+name: 'Fusy'
+type: module
+description: 'My fusy controller'
+core: 8.x
+package: 'Custom'

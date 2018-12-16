@@ -1,0 +1,14 @@
+{
+  "name": "drupal/fusy",
+  "type": "drupal-module",
+  "description": "My fusy controller",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/fusy",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/fusy",
+    "source": "http://cgit.drupalcode.org/fusy"
+  },
+  "require": { }
+}

@@ -1,0 +1,22 @@
+# Cars routing definition
+cars.settings_tab:
+  route_name: cars.settings
+  title: 'Settings'
+  base_route: cars.settings
+
+entity.cars.canonical:
+  route_name: entity.cars.canonical
+  base_route: entity.cars.canonical
+  title: 'View'
+
+entity.cars.edit_form:
+  route_name: entity.cars.edit_form
+  base_route: entity.cars.canonical
+  title: 'Edit'
+
+entity.cars.delete_form:
+  route_name:  entity.cars.delete_form
+  base_route:  entity.cars.canonical
+  title: Delete
+  weight: 10
+

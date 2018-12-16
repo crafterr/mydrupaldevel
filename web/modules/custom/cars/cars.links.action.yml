@@ -1,0 +1,5 @@
+entity.cars.add_form:
+  route_name: entity.cars.add_form
+  title: 'Add Cars'
+  appears_on:
+    - entity.cars.collection

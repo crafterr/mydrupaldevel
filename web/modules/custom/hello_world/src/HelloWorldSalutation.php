@@ -87,10 +87,16 @@ class HelloWorldSalutation {
 
     $render['#overridden'] = TRUE;
 
+    //add js to template
+    $render['#attached'] = [
+      'library' => [
+        'hello_world/hello_world_clock'
+      ]
+    ];
+
     $time = new \DateTime();
     $render['#target'] = $this->t('world');
-
-    if ((int) $time->format('G') >= 06 && (int) $time->format('G') < 12) {
+    if ((int) $time->format('G') >= 04 && (int) $time->format('G') < 12) {
         $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_morning'));
       return $render;
     }
@@ -102,6 +108,7 @@ class HelloWorldSalutation {
 
     if ((int) $time->format('G') >= 18) {
       $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_evening'));
+
       return $render;
     }
   }

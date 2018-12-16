@@ -1,0 +1,8 @@
+
+fusy.index_controller_hello:
+  path: '/fusy/hello/{name}'
+  defaults:
+    _controller: '\Drupal\fusy\Controller\IndexController::hello'
+    _title: 'index'
+  requirements:
+    _permission: 'access content'

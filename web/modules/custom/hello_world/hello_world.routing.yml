@@ -4,7 +4,16 @@ hello_world.hello:
     _controller: '\Drupal\hello_world\Controller\HelloWorldController::helloWorld'
     _title: 'Our first route'
   requirements:
-    _permission: 'access content'
+    _hello_world_access_check: 'TRUE'
+    _csrf_token: 'TRUE'
+
+hello_world.user:
+  path: '/hello/getuser'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\UserController::getUser'
+    _title: 'Our first route'
+  requirements:
+    _custom_access: '\Drupal\hello_world\Controller\UserController::access'
 
 hello_world.datadefinition:
   path: '/datadefinition'
