@@ -10,10 +10,15 @@ namespace Drupal\hello_world\Controller;
 
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\RemoveCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
-
+use Drupal\hello_world\Ajax\HelloCommand;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 class UserController extends ControllerBase{
 
   public function getUser()
@@ -52,6 +57,28 @@ class UserController extends ControllerBase{
     dump($user->get('name')->value); die();
 
 
+  }
+
+  public function hideBlock(Request $request)
+  {
+    if (!$request->isXmlHttpRequest()) {
+      throw new NotFoundHttpException();
+    }
+
+    $response = new AjaxResponse();
+    $command = new RemoveCommand('.dupa');
+    $response->addCommand($command);
+    $response->addCommand(new HelloCommand());
+    return $response;
+  }
+
+  public function getContent()
+  {
+    $render = [
+      '#theme' => 'hello_world_content',
+      '#params' => ['adam','maciek','grzesiek']
+    ];
+    return $render;
   }
 
   /**

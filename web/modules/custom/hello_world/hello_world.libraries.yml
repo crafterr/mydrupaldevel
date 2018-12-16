@@ -6,3 +6,9 @@ hello_world_clock:
     - core/jquery
     - core/drupal
     - core/jquery.once
+
+example_library:
+  js:
+    js/hello_world_example.js: {}
+  dependencies:
+    - core/drupal.ajax

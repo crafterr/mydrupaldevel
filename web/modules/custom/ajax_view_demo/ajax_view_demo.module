@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains ajax_view_demo.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ajax_view_demo_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ajax_view_demo module.
+    case 'help.page.ajax_view_demo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme()
+ */
+function ajax_view_demo_theme($existing, $type, $theme, $path) {
+  return [
+    'ajax_view_demo' => [],
+  ];
+}

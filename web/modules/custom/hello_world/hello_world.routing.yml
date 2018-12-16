@@ -15,6 +15,15 @@ hello_world.user:
   requirements:
     _custom_access: '\Drupal\hello_world\Controller\UserController::access'
 
+hello_world.user.hide_block:
+  path: '/hello/user/hide-block'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\UserController::hideBlock'
+    _title: 'Our first route'
+  requirements:
+    _permission: 'access content'
+
+
 hello_world.datadefinition:
   path: '/datadefinition'
   defaults:

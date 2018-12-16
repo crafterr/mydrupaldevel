@@ -1,0 +1,14 @@
+{
+  "name": "drupal/ajax_view_demo",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/ajax_view_demo",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/ajax_view_demo",
+    "source": "http://cgit.drupalcode.org/ajax_view_demo"
+  },
+  "require": { }
+}

@@ -85,6 +85,9 @@ function hello_world_theme($existing, $type, $theme, $path) {
     ],
     'my_context_block' => [
       'variables' => ['mytext'=>NULL]
+    ],
+    'hello_world_content' => [
+      'variables' => ['params'=>NULL]
     ]
   ];
 }

@@ -71,7 +71,7 @@ class HelloWorldSalutation {
    * Returns the Salutation render array.
    */
   public function getSalutationComponent() {
-
+    $msg = [1,2,3,4,5];
     $render = [
         '#theme' => 'hello_world_salutation',
         '#salutation' => [
@@ -90,7 +90,8 @@ class HelloWorldSalutation {
     //add js to template
     $render['#attached'] = [
       'library' => [
-        'hello_world/hello_world_clock'
+        'hello_world/hello_world_clock',
+        'hello_world/example_library'
       ]
     ];
 
@@ -98,16 +99,26 @@ class HelloWorldSalutation {
     $render['#target'] = $this->t('world');
     if ((int) $time->format('G') >= 04 && (int) $time->format('G') < 12) {
         $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_morning'));
+        //send to js
+       //$render['#attached']['drupalSettings']['modulename']['modulename_functionality']['param']
+       $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['afternoon'] = TRUE;
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['myparam'] = $msg;
       return $render;
     }
 
     if ((int) $time->format('G') >= 12 && (int) $time->format('G') < 18) {
       $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_afternoon'));
+
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['afternoon'] = TRUE;
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['myparam'] = $msg;
       return $render;
     }
 
     if ((int) $time->format('G') >= 18) {
       $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_evening'));
+
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['afternoon'] = TRUE;
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['myparam'] = $msg;
 
       return $render;
     }

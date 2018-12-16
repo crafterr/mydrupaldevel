@@ -1,26 +1,27 @@
 (function (Drupal, $) {
 
   "use strict";
-  Drupal.behaviors.helloWorldClock = {
-    attach: function (context,settings) {
 
+  Drupal.behaviors.helloWorldClock = {
+    attach: function (context, settings) {
       function ticker() {
         var date = new Date();
         $(context).find('.clock').html(date.toLocaleTimeString());
       }
-
+      var php_param = settings.hello_world.hello_world_clock.myparam;
+      $(context).find('.site-branding__text').once('helloWorldClock').append(php_param);
+      // @TODO Incorrect string output. Need to ensure they can be translatable.
       var clock = '<div>The time is <span class="clock"></span></div>';
-      $(context).find('.salutation').append(clock);
+      if (settings.hello_world != undefined && settings.hello_world.hello_world_clock.afternoon != undefined) {
+        clock += 'Are you having a nice day?';
+      }
 
-      $(context).find('.site-branding__text').append(clock);
+      $(context).find('.salutation').once('helloWorldClock').append(clock);
 
-
-      setInterval(function(){
+      setInterval(function() {
         ticker();
-      },1000);
-
+      }, 1000);
     }
-  }
-  // Our code here.
+  };
 
-}) (Drupal, jQuery);
+})(Drupal, jQuery);
