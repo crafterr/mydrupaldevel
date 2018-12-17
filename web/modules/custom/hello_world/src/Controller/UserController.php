@@ -11,7 +11,9 @@ namespace Drupal\hello_world\Controller;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\AppendCommand;
 use Drupal\Core\Ajax\RemoveCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
@@ -66,19 +68,24 @@ class UserController extends ControllerBase{
     }
 
     $response = new AjaxResponse();
-    $command = new RemoveCommand('.dupa');
-    $response->addCommand($command);
-    $response->addCommand(new HelloCommand());
+    //$command = new RemoveCommand('.dupa');
+   // $response->addCommand($command);
+    $response->addCommand(new ReplaceCommand('div.content2',$this->getContent()));
     return $response;
   }
 
-  public function getContent()
+
+  private function getContent()
   {
-    $render = [
+    $manager = \Drupal::languageManager();
+    $language = $manager->getCurrentLanguage();
+    $build = array(
       '#theme' => 'hello_world_content',
-      '#params' => ['adam','maciek','grzesiek']
-    ];
-    return $render;
+      '#params' => ['adam','maciek','grzesiek'],
+      '#language' => $language
+    );
+
+    return $build;
   }
 
   /**

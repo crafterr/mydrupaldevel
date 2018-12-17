@@ -6,6 +6,11 @@
     {% endif %}
     {{ title_suffix }}
         <a class="use-ajax" href="{{ url('hello_world.user.hide_block') }}">Kliknij</a>
-        <div class="dupa">dupadupadupa</div>
-        <div class="content"></div>
+        <div class="dupa">
+            {% trans %}dupa{% endtrans %}
+        </div>
+        {{ 'param'|t }}
+
 </div>
+
+<div class="content2"></div>

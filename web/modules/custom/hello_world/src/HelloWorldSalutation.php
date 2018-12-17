@@ -97,6 +97,7 @@ class HelloWorldSalutation {
 
     $time = new \DateTime();
     $render['#target'] = $this->t('world');
+    $s = $this->t('myparam');
     if ((int) $time->format('G') >= 04 && (int) $time->format('G') < 12) {
         $render['#salutation']['#markup'] = $this->t($config->get('salutation_good_morning'));
         //send to js

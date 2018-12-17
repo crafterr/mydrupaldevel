@@ -6,8 +6,6 @@
     console.log(response.message);
 
     var content = response.response;
-
     $('div.content').append(content);
-    console.log('weszlo');
   }
 })(jQuery, Drupal);

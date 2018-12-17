@@ -87,7 +87,7 @@ function hello_world_theme($existing, $type, $theme, $path) {
       'variables' => ['mytext'=>NULL]
     ],
     'hello_world_content' => [
-      'variables' => ['params'=>NULL]
+      'variables' => ['params'=>NULL,'language'=>NULL]
     ]
   ];
 }
