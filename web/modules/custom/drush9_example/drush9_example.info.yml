@@ -1,0 +1,5 @@
+name: 'drush9_example'
+type: module
+description: 'Provides examples for writing custom Drush 9 commands.'
+core: 8.x
+package: 'Custom'

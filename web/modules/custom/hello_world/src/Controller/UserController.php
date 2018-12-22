@@ -79,10 +79,14 @@ class UserController extends ControllerBase{
   {
     $manager = \Drupal::languageManager();
     $language = $manager->getCurrentLanguage();
+
+    $allLang = $manager->getLanguages();
+    //dump($allLang); die();
     $build = array(
       '#theme' => 'hello_world_content',
       '#params' => ['adam','maciek','grzesiek'],
-      '#language' => $language
+      '#language' => $language,
+      '#languages' => $allLang
     );
 
     return $build;

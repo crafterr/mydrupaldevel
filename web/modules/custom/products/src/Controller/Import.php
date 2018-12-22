@@ -14,11 +14,11 @@ class Import extends ControllerBase {
   {
     /** @var Importer $config */
     //$config = \Drupal::entityTypeManager()->getStorage('importer')->load('my_importer');
-    $config = \Drupal::entityTypeManager()->getStorage('product_type')->loadMultiple();
-    dump($config); die();
+   // $config = \Drupal::entityTypeManager()->getStorage('product_type')->loadMultiple();
+    //dump($config); die();
     //$plugin = \Drupal::service('products.importer_manager')->createInstance($config->getPluginId(), ['config' => $config]);
     $plugin = \Drupal::service('products.importer_manager')->createInstanceFormConfig('my_importer');
-  dump($plugin); die();
+ // dump($plugin); die();
     $plugin->import();
     return [
       '#markup' => t('Weszlo')

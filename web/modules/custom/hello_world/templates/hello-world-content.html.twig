@@ -5,3 +5,11 @@
 <div>
     {{ 'Your language is'|t }} {{ language.name }}
 </div>
+{% if languages %}
+    <p>{{ 'Your languages:'|t }}</p>
+<ul>
+    {% for lang in languages %}
+        <li>{{ lang.name }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

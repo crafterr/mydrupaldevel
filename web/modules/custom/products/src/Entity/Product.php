@@ -113,7 +113,7 @@ class Product extends ContentEntityBase implements ProductInterface
         'max_length' => 255,
         'text_processing' => 0,
       ])
-      ->setDefaultValue(\Drupal::request()->getClientIp());
+      ->setDefaultValue('');
 
     /**
      * Source field definition
