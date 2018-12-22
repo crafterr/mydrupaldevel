@@ -46,7 +46,7 @@ class SportsController extends ControllerBase {
     $query = $this->database->select('players','p')
       ->fields('p')
       ->extend('\Drupal\Core\Database\Query\PagerSelectExtender')
-      ->limit(3)
+      ->limit(100)
       ->addTag('player_query');
     $result = $query->execute()->fetchAll();
     $header = [t('Name')];

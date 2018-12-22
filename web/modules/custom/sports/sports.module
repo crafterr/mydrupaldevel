@@ -80,8 +80,86 @@ function sports_query_alter(Drupal\Core\Database\Query\AlterableInterface $query
   if (!$query->hasTag('player_query')) {
     return;
   }
-  $query->join('teams', 't', 't.id = p.team_id');
+  /*$query->join('teams', 't', 't.id = p.team_id');
   $query->addField('t', 'name', 'team_name');
   $query->condition('t.name', 'Team A');
-  $query->limit(1);
+  $query->limit(1);*/
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function sports_views_data() {
+  $data = [];
+
+  // Players table
+  $data['players'] = [];
+  $data['players']['table']['group'] = t('Sports');
+  $data['players']['table']['base'] = array(
+    'field' => 'id',
+    'title' => t('Players'),
+    'help' => t('Holds player data.'),
+  );
+
+  // Player fields
+  $data['players']['id'] = array(
+    'title' => t('ID'),
+    'help' => t('The unique player ID.'),
+    'field' => array(
+      'id' => 'numeric',
+    ),
+  );
+
+  $data['players']['name'] = array(
+    'title' => t('Name'),
+    'help' => t('The name of the player.'),
+    'field' => array(
+      'id' => 'standard',
+    ),
+  );
+
+  $data['players']['data'] = array(
+    'title' => t('Data'),
+    'help' => t('The player data.'),
+    'field' => array(
+      'id' => 'serialized',
+    ),
+  );
+
+  $data['players']['team_id'] = array(
+    'title' => t('Team ID'),
+    'help' => t('The unique team ID of the player.'),
+    'field' => array(
+      'id' => 'numeric',
+    ),
+    'relationship' => array(
+      'base' => 'teams',
+      'base field' => 'id',
+      'id' => 'standard',
+      'label' => t('Player team'),
+    ),
+  );
+
+
+  // Teams table
+  $data['teams'] = [];
+  $data['teams']['table']['group'] = t('Sports');
+
+  // Teams fields
+  $data['teams']['name'] = array(
+    'title' => t('Name'),
+    'help' => t('The name of the team.'),
+    'field' => array(
+      'id' => 'standard',
+    ),
+  );
+
+  $data['teams']['description'] = array(
+    'title' => t('Description'),
+    'help' => t('The description of the team.'),
+    'field' => array(
+      'id' => 'standard',
+    ),
+  );
+  return $data;
 }
