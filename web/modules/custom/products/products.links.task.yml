@@ -9,4 +9,30 @@ entity.product_type.collection:
   title: 'Product Types'
   route_name: entity.product_type.collection
   description: 'List Product Types'
-  base_route: system.admin_content
+  base_route: system.admin_content# Price routing definition
+price.settings_tab:
+  route_name: price.settings
+  title: 'Settings'
+  base_route: price.settings
+
+entity.price.canonical:
+  route_name: entity.price.canonical
+  base_route: entity.price.canonical
+  title: 'View'
+
+entity.price.edit_form:
+  route_name: entity.price.edit_form
+  base_route: entity.price.canonical
+  title: 'Edit'
+
+entity.price.version_history:
+  route_name: entity.price.version_history
+  base_route: entity.price.canonical
+  title: 'Revisions'
+
+entity.price.delete_form:
+  route_name:  entity.price.delete_form
+  base_route:  entity.price.canonical
+  title: Delete
+  weight: 10
+

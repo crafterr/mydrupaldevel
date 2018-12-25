@@ -1,0 +1,4 @@
+services:
+  lazy_service.my_heavy_service:
+    class: Drupal\lazy_service\MyHeavyService
+    lazy: true

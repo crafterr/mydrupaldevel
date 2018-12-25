@@ -138,6 +138,10 @@ function sports_views_data() {
       'id' => 'standard',
       'label' => t('Player team'),
     ),
+    //contextual filter
+    'argument' => array(
+      'id' => 'numeric',
+    ),
   );
 
 
@@ -152,6 +156,12 @@ function sports_views_data() {
     'field' => array(
       'id' => 'standard',
     ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'team_filter',
+    ),
   );
 
   $data['teams']['description'] = array(
@@ -161,5 +171,7 @@ function sports_views_data() {
       'id' => 'standard',
     ),
   );
+
+
   return $data;
 }

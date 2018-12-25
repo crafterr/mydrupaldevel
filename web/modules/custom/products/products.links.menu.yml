@@ -13,3 +13,16 @@ entity.importer.collection:
   description: 'List Importer entities'
   parent: system.admin_structure
   weight: 99
+# Price menu items definition
+entity.price.collection:
+  title: 'Price list'
+  route_name: entity.price.collection
+  description: 'List Price entities'
+  parent: system.admin_structure
+  weight: 100
+
+price.admin.structure.settings:
+  title: 'Price settings'
+  description: 'Configure Price entities'
+  route_name: price.settings
+  parent: system.admin_structure

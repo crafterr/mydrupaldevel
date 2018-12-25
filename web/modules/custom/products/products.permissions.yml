@@ -5,4 +5,33 @@ edit product entities:
 delete product entities:
   title: 'Delete Product entities'
 add product entities:
-  title: 'Create new Product entities'
+  title: 'Create new Product entities'add price entities:
+  title: 'Create new Price entities'
+
+administer price entities:
+  title: 'Administer Price entities'
+  description: 'Allow to access the administration form to configure Price entities.'
+  restrict access: true
+
+delete price entities:
+  title: 'Delete Price entities'
+
+edit price entities:
+  title: 'Edit Price entities'
+
+view published price entities:
+  title: 'View published Price entities'
+
+view unpublished price entities:
+  title: 'View unpublished Price entities'
+
+view all price revisions:
+  title: 'View all Price revisions'
+
+revert all price revisions:
+  title: 'Revert all Price revisions'
+  description: 'Role requires permission <em>view Price revisions</em> and <em>edit rights</em> for price entities in question or <em>administer price entities</em>.'
+
+delete all price revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Price revisions</em> and <em>delete rights</em> for price entities in question or <em>administer price entities</em>.'

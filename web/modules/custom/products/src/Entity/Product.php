@@ -15,7 +15,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   label = @Translation("Product"),
  *   bundle_label = @Translation("Product type"),
  *   handlers = {
- *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "views_data" = "Drupal\products\Entity\ProductViewsData",
  *     "list_builder" = "Drupal\products\ProductListBuilder",
  *     "views_data" = "Drupal\products\Entity\ProductViewsData",
  *     "form" = {
@@ -130,6 +130,31 @@ class Product extends ContentEntityBase implements ProductInterface
         'type' => 'string_textfield',
         'weight' => -4,
       ]);
+
+    $fields['price_id'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Price'))
+      ->setDescription(t('Prices.'))
+      ->setSetting('target_type', 'price')
+      ->setSetting('handler', 'default')
+
+      ->setRequired(TRUE)
+      ->setCardinality(1)
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'options_select',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => 60,
+          'placeholder' => '',
+        ),
+        'weight' => -2,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 
     /**
      * Created field definition

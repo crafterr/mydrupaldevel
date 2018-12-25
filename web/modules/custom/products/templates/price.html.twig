@@ -1,0 +1,22 @@
+{#
+/**
+ * @file price.html.twig
+ * Default theme implementation to present Price data.
+ *
+ * This template is used when viewing Price pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_price()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('price') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

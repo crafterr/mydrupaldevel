@@ -1,0 +1,8 @@
+
+lazy_service.my_heavy_controller_hello:
+  path: '/lazy_service/hello/{name}'
+  defaults:
+    _controller: '\Drupal\lazy_service\Controller\MyHeavyController::hello'
+    _title: 'render'
+  requirements:
+    _permission: 'access content'

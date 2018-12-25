@@ -5,9 +5,9 @@ namespace Drupal\products\Entity;
 use Drupal\views\EntityViewsData;
 
 /**
- * Provides Views data for Cars entities.
+ * Provides Views data for Price entities.
  */
-class ProductViewsData extends EntityViewsData {
+class PriceViewsData extends EntityViewsData {
 
   /**
    * {@inheritdoc}
@@ -17,14 +17,6 @@ class ProductViewsData extends EntityViewsData {
 
     // Additional information for Views integration, such as table joins, can be
     // put here.
-    //importer
-    $data['product']['importer'] = [
-      'title' => t('Importer'),
-      'help' => t('Information about product importer'),
-      'field' => [
-          'id' => 'product_importer'
-      ]
-     ];
 
     return $data;
   }
