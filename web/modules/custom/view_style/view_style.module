@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains view_style.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function view_style_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the view_style module.
+    case 'help.page.view_style':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function view_style_theme() {
+  return [
+    'view_style' => [
+      'render element' => 'children',
+    ],
+  ];
+}

@@ -5,8 +5,7 @@ edit product entities:
 delete product entities:
   title: 'Delete Product entities'
 add product entities:
-  title: 'Create new Product entities'add price entities:
-  title: 'Create new Price entities'
+  title: 'Create new Product entities'
 
 administer price entities:
   title: 'Administer Price entities'

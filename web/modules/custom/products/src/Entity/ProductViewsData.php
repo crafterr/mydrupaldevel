@@ -26,6 +26,13 @@ class ProductViewsData extends EntityViewsData {
       ]
      ];
 
+    $data['price']['name'] = [
+      'title' => t('Product has Prices'),
+      'help' => t('Information about product prices'),
+      'filter' => array(
+        'id' => 'price_filter',
+      ),
+    ];
     return $data;
   }
 

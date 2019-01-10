@@ -5,3 +5,10 @@ views.field.product_importer:
     importer:
       type: string
       label: 'Which importer label to use: entity or plugin'
+
+views.filter_value.price_filter:
+  type: sequence
+  label: 'Price'
+  sequence:
+    type: string
+    label: 'Price'
