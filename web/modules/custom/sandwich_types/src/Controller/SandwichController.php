@@ -23,14 +23,17 @@ class SandwichController extends ControllerBase {
 
    // $hamburger = $sandwichService->createInstance('hamburger');
     $plugins = $sandwichService->getDefinitions();
-
-    foreach ($plugins as $flavor) {
-      $instance = $sandwichService->createInstance($flavor['id']);
+    foreach ($plugins as $sandwich) {
+      /**
+       * @var \Drupal\sandwich\Plugin\SandwichPluginInterface $instance
+       */
+      $instance = $sandwichService->createInstance($sandwich['id']);
       $build[] = array(
         '#type' => 'markup',
-        '#markup' => t('<p>Flavor @name, cost $@price and @slogan.</p>', array('@name' => $instance->ge(), '@price' => $instance->getPrice(),'@slogan'=>$instance->slogan())),
+        '#markup' => t('<p>Sandwich @name, calories:  @calories and @description.</p><p>Order: @order</p>', array('@name' => $instance->getPluginId(), '@description' => $instance->getDescription(),'@calories'=>$instance->getCalories(),'@order'=>$instance->order([]))),
       );
     }
+    return $build;
   }
 
 }

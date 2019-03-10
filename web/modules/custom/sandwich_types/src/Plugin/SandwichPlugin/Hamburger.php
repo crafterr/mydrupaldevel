@@ -13,7 +13,7 @@ use Drupal\sandwich\Plugin\SandwichPluginBase;
  *   calories = 1000
  * )
  */
-class ExampleHamSandwich extends SandwichPluginBase {
+class Hamburger extends SandwichPluginBase {
 
   /**
    * {inheritdoc}
