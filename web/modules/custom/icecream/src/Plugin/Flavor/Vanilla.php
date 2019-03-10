@@ -7,6 +7,7 @@
 
 namespace Drupal\icecream\Plugin\Flavor;
 
+use Drupal\Core\Annotation\Translation;
 use Drupal\icecream\FlavorBase;
 
 /**
@@ -15,7 +16,8 @@ use Drupal\icecream\FlavorBase;
  * @Flavor(
  *   id = "vanilla",
  *   name = @Translation("Vanilla"),
- *   price = 1.75
+ *   price = 1.75,
+ *   opinion = @Translation("Fajny jest ogolnie ten smak")
  * )
  */
 class Vanilla extends FlavorBase {}

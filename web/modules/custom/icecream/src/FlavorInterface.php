@@ -34,5 +34,7 @@ interface FlavorInterface extends PluginInspectionInterface {
    * @return string
    */
   public function slogan();
+
+  public function getOpinion();
   
 }

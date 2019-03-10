@@ -19,10 +19,21 @@ class IcecreamController extends ControllerBase implements ContainerInjectionInt
       '#markup' => t('Hello World!'),
     );
 
+    /**
+     * @var \Drupal\icecream\IcecreamManager $manager
+     */
     $manager = \Drupal::service('plugin.manager.icecream');
     $plugins = $manager->getDefinitions();
 
-    drupal_set_message(print_r($plugins, TRUE));
+    //dump($plugins); die();
+
+   // drupal_set_message(print_r($plugins, TRUE));
+    /**
+     * @var \Drupal\icecream\FlavorInterface $instance
+     */
+    $instance = $manager->createInstance('vanilla');
+
+    dump($instance->getOpinion()->__toString()); die();
 
     foreach ($plugins as $flavor) {
       $instance = $manager->createInstance($flavor['id']);

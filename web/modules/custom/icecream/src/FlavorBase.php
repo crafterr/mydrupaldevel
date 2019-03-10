@@ -18,6 +18,10 @@ class FlavorBase extends PluginBase implements FlavorInterface {
     return $this->pluginDefinition['price'];
   }
 
+  public function getOpinion() {
+    return $this->pluginDefinition['opinion'];
+  }
+
   public function slogan() {
     return t('Best flavor ever.');
   }

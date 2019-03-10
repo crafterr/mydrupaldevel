@@ -44,4 +44,9 @@ class Flavor extends Plugin {
    */
   public $price;
 
+  /**
+   * @var string
+   */
+  public $opinion;
+
 }

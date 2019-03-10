@@ -1,0 +1,8 @@
+
+sandwich_types.sandwich_controller_hello:
+  path: '/sandwich_types/saymeit'
+  defaults:
+    _controller: '\Drupal\sandwich_types\Controller\SandwichController::saymeit'
+    _title: 's'
+  requirements:
+    _permission: 'access content'

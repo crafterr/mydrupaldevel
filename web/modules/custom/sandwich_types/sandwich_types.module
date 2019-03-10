@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains sandwich_types.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sandwich_types_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sandwich_types module.
+    case 'help.page.sandwich_types':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function sandwich_types_theme() {
+  return [
+    'sandwich_types' => [
+      'render element' => 'children',
+    ],
+  ];
+}
