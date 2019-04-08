@@ -1,0 +1,16 @@
+transport.transport:
+  path: '/transport'
+  defaults:
+    _title: 'Transport'
+    _controller: '\Drupal\transport\Controller\TransportController::test'
+  requirements:
+    _permission: 'access content'
+
+transport.admin_settings:
+  path: '/admin/config/system/transport'
+  defaults:
+    _form: '\Drupal\transport\Form\SettingsForm'
+    _title: 'Transport settings'
+  requirements:
+    _permission: 'administer site configuration'
+

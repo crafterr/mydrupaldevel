@@ -5,3 +5,4 @@ param_controller.showmyparam:
     _controller: '\Drupal\param_controller\Controller\ShowMyParam::render'
   requirements:
     _permission: 'access content'
+
