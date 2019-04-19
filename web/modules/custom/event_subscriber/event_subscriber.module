@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Contains event_subscriber.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function event_subscriber_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the event_subscriber module.
+    case 'help.page.event_subscriber':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Demo of creating and subscribing to events') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function event_subscriber_theme() {
+  return [
+    'event_subscriber' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+use Drupal\event_subscriber\Event\NodeInsertDemoEvent;
+function event_subscriber_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  /*\Drupal::logger('event_subscriber_demo')->notice('New @type: @title. Created by: @owner',
+    array(
+      '@type' => $entity->getType(),
+      '@title' => $entity->label(),
+      '@owner' => $entity->getOwner()->getDisplayName()
+    ));*/
+
+  //event dispacher
+  /**
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispacher
+   */
+  $event_dispacher = \Drupal::service('event_dispatcher');
+  $event_dispacher->dispatch(NodeInsertDemoEvent::MY_NODE_INSERT,new NodeInsertDemoEvent($entity));
+}

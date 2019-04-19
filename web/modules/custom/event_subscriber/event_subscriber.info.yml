@@ -1,0 +1,5 @@
+name: 'Event Subscriber'
+type: module
+description: 'Demo of creating and subscribing to events'
+core: 8.x
+package: 'CrafterTeam'

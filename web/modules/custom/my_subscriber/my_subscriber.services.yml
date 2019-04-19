@@ -1,0 +1,6 @@
+services:
+  my_subscriber.default:
+    class: Drupal\my_subscriber\EventSubscriber\TomySubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

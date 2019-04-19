@@ -1,0 +1,6 @@
+services:
+  event_subscriber.node.insert:
+    class: Drupal\event_subscriber\EventSubscriber\NodeInsertDemoSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

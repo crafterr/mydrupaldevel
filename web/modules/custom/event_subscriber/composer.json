@@ -1,0 +1,14 @@
+{
+  "name": "drupal/event_subscriber",
+  "type": "drupal-module",
+  "description": "Demo of creating and subscribing to events",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/event_subscriber",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/event_subscriber",
+    "source": "http://cgit.drupalcode.org/event_subscriber"
+  },
+  "require": { }
+}

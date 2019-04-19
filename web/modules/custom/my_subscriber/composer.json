@@ -1,0 +1,14 @@
+{
+  "name": "drupal/my_subscriber",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/my_subscriber",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/my_subscriber",
+    "source": "http://cgit.drupalcode.org/my_subscriber"
+  },
+  "require": { }
+}
