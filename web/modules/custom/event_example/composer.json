@@ -1,0 +1,14 @@
+{
+  "name": "drupal/event_example",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/event_example",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/event_example",
+    "source": "http://cgit.drupalcode.org/event_example"
+  },
+  "require": { }
+}

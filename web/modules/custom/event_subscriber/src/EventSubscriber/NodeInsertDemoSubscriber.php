@@ -25,12 +25,12 @@ class NodeInsertDemoSubscriber implements EventSubscriberInterface {
    */
   public function onMyNodeInsert(NodeInsertDemoEvent $event) {
     $entity = $event->getEntity();
-    \Drupal::logger('event_subscriber_demo')->notice('New @type: @title. Created by: @owner',
+    /*\Drupal::logger('event_subscriber_demo')->notice('New @type: @title. Created by: @owner',
       array(
         '@type' => $entity->getType(),
         '@title' => $entity->label(),
         '@owner' => $entity->getOwner()->getDisplayName()
-      ));
+      ));*/
   }
 
 

@@ -33,7 +33,7 @@ class TomySubscriber implements EventSubscriberInterface {
    */
   public function checkForRedirection(Event $event) {
 
-    drupal_set_message('Event KernelEvents thrown by Subscriber in module my_subscriber.', 'status', TRUE);
+    //drupal_set_message('Event KernelEvents thrown by Subscriber in module my_subscriber.', 'status', TRUE);
   }
 
 }

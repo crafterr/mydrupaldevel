@@ -1,0 +1,9 @@
+
+event_example.event_example_form:
+  path: '/event_example/form/event_example'
+  defaults:
+    _form: '\Drupal\event_example\Form\EventExampleForm'
+    _title: 'EventExampleForm'
+  requirements:
+    _access: 'TRUE'
+  
