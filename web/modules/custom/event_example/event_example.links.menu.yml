@@ -1,0 +1,6 @@
+event_example.main.event:
+  title: "Event controller Example"
+  parent: main
+  menu_name: main
+  description: 'Description of link goes here.'
+  route_name: event_example.event_example_controller_hello

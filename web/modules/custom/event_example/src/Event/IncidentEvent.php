@@ -16,4 +16,6 @@ final class IncidentEvent {
    *
    */
   const NEW_REPORT = 'event_example.new_incident_report';
+
+  const NEW_CONTROLLER_REPORT = 'event_example_new_controller_report';
 }

@@ -7,3 +7,8 @@ services:
     class: Drupal\event_example\EventSubscriber\EventExampleSubscriber
     tags:
       - {name: event_subscriber}
+  even_example_controller_subscriber:
+    class: Drupal\event_example\EventSubscriber\EventExampleControllerSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

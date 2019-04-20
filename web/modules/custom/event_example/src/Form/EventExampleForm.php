@@ -89,9 +89,7 @@ class EventExampleForm extends FormBase {
     $report = $form_state->getValue('incident');
     $event = new IncidentReportEvent($type,$report);
     $this->eventDispatcher->dispatch(IncidentEvent::NEW_REPORT,$event);
-    //dump($type);
-    //dump($report);
-    //die();
+
 
   }
 

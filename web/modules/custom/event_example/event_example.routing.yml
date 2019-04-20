@@ -7,3 +7,11 @@ event_example.event_example_form:
   requirements:
     _access: 'TRUE'
   
+
+event_example.event_example_controller_hello:
+  path: '/event_example/hello'
+  defaults:
+    _controller: '\Drupal\event_example\Controller\EventExampleController::hello'
+    _title: 'Event Example'
+  requirements:
+    _permission: 'access content'
