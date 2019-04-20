@@ -34,7 +34,9 @@ class EventExampleController extends ControllerBase {
   }
 
   public function hello() {
+
     $this->eventDispatcher->dispatch(IncidentEvent::NEW_CONTROLLER_REPORT, new ControllerReportEvent($this));
+
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Implement method: hello with parameter(s)'),
