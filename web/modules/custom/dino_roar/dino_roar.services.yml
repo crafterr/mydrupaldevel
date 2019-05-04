@@ -1,0 +1,8 @@
+services:
+  dino_roar.roar:
+    class: Drupal\dino_roar\RoarGenerator
+    arguments: ['@dino_roar.roar_strategy']
+
+  dino_roar.roar_strategy:
+    class: Drupal\dino_roar\Strategy\RoarStrategy
+    arguments: []

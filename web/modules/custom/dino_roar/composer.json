@@ -1,0 +1,14 @@
+{
+  "name": "drupal/dino_roar",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/dino_roar",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/dino_roar",
+    "source": "http://cgit.drupalcode.org/dino_roar"
+  },
+  "require": { }
+}
