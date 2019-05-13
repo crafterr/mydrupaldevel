@@ -63,3 +63,11 @@ hello_world.greeting_form:
     _title: 'Salutation configuration'
   requirements:
     _permission: 'administer site configuration'
+
+hello_world.translator_controller_hello:
+  path: '/hello_world/hello/translator'
+  defaults:
+    _controller: '\Drupal\hello_world\Controller\TranslatorController::hello'
+    _title: 'Translator'
+  requirements:
+    _permission: 'access content'
