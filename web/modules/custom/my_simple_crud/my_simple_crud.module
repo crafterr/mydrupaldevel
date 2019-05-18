@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains my_simple_crud.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function my_simple_crud_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the my_simple_crud module.
+    case 'help.page.my_simple_crud':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function my_simple_crud_theme() {
+  return [
+    'my_simple_crud' => [
+      'render element' => 'children',
+    ],
+  ];
+}

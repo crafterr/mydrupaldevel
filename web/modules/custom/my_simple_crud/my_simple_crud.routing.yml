@@ -1,0 +1,15 @@
+my_simple_crud.crud_controller_display:
+  path: '/my_simple_crud/display'
+  defaults:
+    _controller: '\Drupal\my_simple_crud\Controller\CrudController::display'
+    _title: 'display'
+  requirements:
+    _permission: 'access content'
+
+my_simple_crud.delete_form:
+  path: '/my_simple_crud/form/delete/{id}'
+  defaults:
+    _form: '\Drupal\my_simple_crud\Form\DeleteForm'
+    _title: 'DeleteForm'
+  requirements:
+    _access: 'TRUE'

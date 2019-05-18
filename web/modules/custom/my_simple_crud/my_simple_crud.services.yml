@@ -1,0 +1,4 @@
+services:
+  my_simple_crud.storage:
+    class: Drupal\my_simple_crud\StorageService
+    arguments: ['@database']
