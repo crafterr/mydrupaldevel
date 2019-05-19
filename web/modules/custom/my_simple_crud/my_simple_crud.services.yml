@@ -2,3 +2,9 @@ services:
   my_simple_crud.storage:
     class: Drupal\my_simple_crud\StorageService
     arguments: ['@database']
+
+  my_simple_crud:
+    class: Drupal\my_simple_crud\ParamConverter\MySimpleCrudConverter
+    arguments: ['@my_simple_crud.storage']
+    tags:
+      - { name: paramconverter }
