@@ -13,3 +13,23 @@ my_simple_crud.delete_form:
     _title: 'DeleteForm'
   requirements:
     _access: 'TRUE'
+
+my_simple_crud.create_form:
+  path: '/my_simple_crud/form/create'
+  defaults:
+    _form: '\Drupal\my_simple_crud\Form\CreateForm'
+    _title: 'CreateForm'
+  requirements:
+    _access: 'TRUE'
+
+my_simple_crud.edit_form:
+  path: 'my_simple_crud/{my_simple_crud}/edit'
+  defaults:
+    _form: '\Drupal\my_simple_crud\Form\CreateForm'
+    _title: 'Edit Form'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      my_simple_crud:
+        type: my_simple_crud

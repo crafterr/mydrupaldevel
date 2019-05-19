@@ -1,0 +1,5 @@
+my_simple_crud.create_link:
+  route_name: 'my_simple_crud.create_form'
+  title: 'Add new simple item'
+  appears_on:
+    - my_simple_crud.crud_controller_display

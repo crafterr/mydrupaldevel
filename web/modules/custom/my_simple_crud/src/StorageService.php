@@ -83,7 +83,7 @@ class StorageService implements StorageServiceInterface {
 
   public function delete($id) {
     $record = $this->load($id);
-    if ($record->profile_pic) {
+    if (isset($record->profile_pic)) {
       file_delete($record->profile_pic);
     }
     return $this->database->delete('my_simple_crud')->condition('id', $id)->execute();

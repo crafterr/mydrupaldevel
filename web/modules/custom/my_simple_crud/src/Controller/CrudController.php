@@ -50,6 +50,8 @@ class CrudController extends ControllerBase {
       'opt1' => $this->t('operations'),
     ];
 
+    $rows = [];
+
     /**
      * query
      */
@@ -59,7 +61,7 @@ class CrudController extends ControllerBase {
 
     foreach ($result as $data) {
       $delete = Url::fromRoute('my_simple_crud.delete_form',['id' => $data->id]);
-
+      $edit = Url::fromRoute('my_simple_crud.edit_form',['my_simple_crud' => $data->id]);
       $rows[] = [
         'id' => $data->id,
         'name' => $data->name,
@@ -68,9 +70,11 @@ class CrudController extends ControllerBase {
         'age' => $data->age,
         'gender' => $data->gender,
         'website' => $data->website,
-        Link::fromTextAndUrl('Delete',$delete)
+        Link::fromTextAndUrl('Delete',$delete),
+        Link::fromTextAndUrl('Edit',$edit)
       ];
     }
+
     /**
      * render as a table
      */
